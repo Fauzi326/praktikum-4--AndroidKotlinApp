@@ -3,35 +3,34 @@ package id.ac.polbeng.muhammadFauzi.androidkotlinapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
+import id.ac.polbeng.muhammadFauzi.androidkotlinapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var tvCounter: TextView
-    private lateinit var btnAddNumber: Button
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tvCounter = findViewById(R.id.tvCounter)
-        btnAddNumber = findViewById(R.id.btnAddNumber)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        tvCounter.text = "1"
+        binding.tvCounter.text = "1"
     }
     fun addNumber(v: View){
-        val currVal = tvCounter.text.toString().toInt()
+        val currVal = binding.tvCounter.text.toString().toInt()
         val nextVal = currVal + 1
-        tvCounter.text = nextVal.toString()
+        binding.tvCounter.text = nextVal.toString()
     }
-    fun substactNumber(v: View){
-        val currVal = tvCounter.text.toString().toInt()
+    fun substactNumber(k: View){
+        val currVal = binding.tvCounter.text.toString().toInt()
         val nextVal = currVal - 1
-        tvCounter.text = nextVal.toString()
+        binding.tvCounter.text = nextVal.toString()
     }
-    fun resetNumber(v: View){
+    fun resetNumber(l: View){
         val nextVal = 0
-        tvCounter.text = nextVal.toString()
+        binding.tvCounter.text = nextVal.toString()
     }
+
 }
